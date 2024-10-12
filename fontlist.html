@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Downloader</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: left;
+        }
+        #fontList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #fontList li {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .download-btn {
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #errorMessage {
+            color: red;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="nav-container">
+              <a href="#" class="logo">Creator On Wheels</a>
+              <button class="mobile-menu-btn">☰</button>
+              <ul class="nav-links">
+                <li class="dropdown">
+                  <a href="#">Products</a>
+                  <div class="dropdown-content">
+                    <a href="index.html/#icons">Minecraft Icons</a>
+                    <a href="musiclist.html">Music and SFX Library</a>
+                    <a href="videolist.html">Video Footages</a>
+                    <a href="fontlist.html">Font Library</a>
+                  </div>
+                </li>
+                <li><a href="crc.html">Copyright Claim</a></li>
+                <li><a href="syl.html">Submit Your Library</a></li>
+                <li><a href="https://discord.com/users/1094475489734819840">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+    </section>
+    <h1>Font Downloader</h1>
+    <div id="app">
+        <div id="errorMessage"></div>
+    <section>
+        <ul id="fontList"></ul>
+    </section>
+    </div>
+
+    <script>
+        const githubApiUrl = 'https://api.github.com/repos/coder-soft/U2FsdGVkX1-h5xBfZNw-WiuRZyqJXnqr/contents/';
+        const rawGithubUrl = 'https://raw.githubusercontent.com/coder-soft/U2FsdGVkX1-h5xBfZNw-WiuRZyqJXnqr/main/';
+
+        async function fetchFonts() {
+            try {
+                const response = await axios.get(githubApiUrl);
+                const fonts = response.data.filter(file => file.name.endsWith('.ttf') || file.name.endsWith('.otf'));
+                
+                const fontList = document.getElementById('fontList');
+                if (fonts.length === 0) {
+                    document.getElementById('errorMessage').textContent = 'No font files found in the repository.';
+                    return;
+                }
+                
+                fonts.forEach(font => {
+                    const li = document.createElement('li');
+                    const downloadBtn = document.createElement('a');
+                    downloadBtn.href = `${rawGithubUrl}${font.name}`;
+                    downloadBtn.className = 'download-btn';
+                    downloadBtn.textContent = `Download ${font.name}`;
+                    downloadBtn.download = font.name;
+                    li.appendChild(downloadBtn);
+                    fontList.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Error fetching fonts:', error);
+                document.getElementById('errorMessage').textContent = `Error: ${error.message}. Please check the console for more details.`;
+            }
+        }
+
+        fetchFonts();
+    </script>
+</body>
+</html>

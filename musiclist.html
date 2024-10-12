@@ -5,32 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>COW - Music</title>
+    <style>
+      .paragraph {
+        text-align: center;
+        margin-top: 20px; 
+        font-size: smaller;
+        color: #505050;
+      }
+    </style>
 </head>
 <body>
     <section>
-        <nav>
-            <div class="nav-container">
-              <a href="#" class="logo">Creator On Wheels</a>
-              <button class="mobile-menu-btn">☰</button>
-              <ul class="nav-links">
-                <li class="dropdown">
-                  <a href="#">Products</a>
-                  <div class="dropdown-content">
-                    <a href="index.html">Minecraft Icons</a>
-                    <a href="#music">Music and SFX Library</a>
-                    <a href="videolist.html">Footages</a>
-                  </div>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-          </nav>
+      <nav>
+        <div class="nav-container">
+          <a href="#" class="logo">Creator On Wheels</a>
+          <button class="mobile-menu-btn">☰</button>
+          <ul class="nav-links">
+            <li class="dropdown">
+              <a href="#">Products</a>
+              <div class="dropdown-content">
+                <a href="index.html/#icons">Minecraft Icons</a>
+                <a href="musiclist.html">Music and SFX Library</a>
+                <a href="videolist.html">Video Footages</a>
+                <a href="fontlist.html">Font Library</a>
+              </div>
+            </li>
+            <li><a href="crc.html">Copyright Claim</a></li>
+            <li><a href="syl.html">Submit Your Library</a></li>
+            <li><a href="https://discord.com/users/1094475489734819840">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
     </section>
     <section id="music">
         <div class="container">
             <h1>Music & SFX Library</h1>
+            <p class="paragraph">Music & SFX could take some time to load.</p>
+            <input type="text" id="search" placeholder="Search icons..." autocomplete="off">
             <div id="musiclist"></div>
     </section>
     <section>
@@ -39,6 +50,5 @@
         </footer>
     </section>
     <script src="app.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
