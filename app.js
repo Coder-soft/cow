@@ -1,4 +1,3 @@
-    "path": "music/Brendon_Moeller_-_Crossing_That_Bridge.mp3"
 const searchInput = document.getElementById("search");
 const musicList = document.getElementById("musiclist");
 
