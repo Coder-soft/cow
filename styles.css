@@ -1,23 +1,16 @@
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
     color: #000000;
     background-color: rgb(255, 255, 255);
-    margin: 0;
-    padding: 0;
+
 }
 
 header {
@@ -336,18 +329,6 @@ body {
     margin: 10px 0;
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #ff6600;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff8533;
-}
   
 .search-box button:hover {
     background-color: #0056b3;
@@ -370,8 +351,6 @@ button:hover {
     font-size: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    padding: 20px;
-    margin: 20px;
 }
 .mc {
     text-decoration: none;
@@ -383,8 +362,6 @@ p {
     font-size: large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    padding: 10px;
-    margin: 10px;
 }
 
 h1 {
@@ -473,13 +450,10 @@ p {
     font-size: large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    padding: 10px;
-    margin: 10px;
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;  
+    font-size: 3rem; 
     color: #333;
     font-weight: 600;
 }
