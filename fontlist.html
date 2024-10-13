@@ -9,104 +9,205 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            background-color: #f4f4f4;
         }
         h1 {
             text-align: left;
-            color: white;
+            color: #333;
         }
         #fontList {
             list-style-type: none;
             padding: 0;
-        }
-        #fontList li {
-            margin-bottom: 10px;
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .font-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 150px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .font-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .font-preview {
+            font-size: 20px;
+            margin-bottom: 10px;
+            min-height: 40px;
+            text-align: center;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .font-box:hover .font-preview {
+            color: #4CAF50;
         }
         .download-btn {
             background-color: #4CAF50;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
+            margin-top: auto;
+            transition: background-color 0.3s ease;
         }
-        #errorMessage {
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+        .font-error {
             color: red;
-            text-align: center;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .loading {
+            color: #888;
+            font-style: italic;
+        }
+        #searchBar {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
         }
     </style>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+          <a href="#" class="logo">Creator On Wheels</a>
+          <button class="mobile-menu-btn">☰</button>
+          <ul class="nav-links">
+            <li class="dropdown">
+              <a href="#">Products</a>
+              <div class="dropdown-content">
+                <a href="public/index.html">Minecraft Icons</a>
+                <a href="musiclist.html">Music and SFX Library</a>
+                <a href="videolist.html">Video Footages</a>
+                <a href="fontlist.html">Font Library</a>
+              </div>
+            </li>
+            <li><a href="crc.html">Copyright Claim</a></li>
+            <li><a href="syl.html">Submit Your Library</a></li>
+            <li><a href="https://discord.com/users/1094475489734819840">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
     <section>
-        <nav>
-            <div class="nav-container">
-              <a href="#" class="logo">Creator On Wheels</a>
-              <button class="mobile-menu-btn">☰</button>
-              <ul class="nav-links">
-                <li class="dropdown">
-                  <a href="#">Products</a>
-                  <div class="dropdown-content">
-                    <a href="index.html">Minecraft Icons</a>
-                    <a href="musiclist.html">Music and SFX Library</a>
-                    <a href="videolist.html">Video Footages</a>
-                    <a href="fontlist.html">Font Library</a>
-                  </div>
-                </li>
-                <li><a href="crc.html">Copyright Claim</a></li>
-                <li><a href="syl.html">Submit Your Library</a></li>
-                <li><a href="https://discord.com/users/1094475489734819840">Contact</a></li>
-              </ul>
-            </div>
-          </nav>
+        <h1>Font Downloader</h1>
+        <input type="text" id="searchBar" placeholder="Search fonts...">
+        <div id="app">
+            <div id="errorMessage"></div>
+            <ul id="fontList"></ul>
+        </div>
     </section>
-<section class="grey">
-    <h1>Font Downloader</h1>
-    <div id="app">
-        <div id="errorMessage"></div>
-        <ul id="fontList"></ul>
 
-    </div>
-</section>
+<script>
+// Update these URLs to point to your Netlify functions
+const proxyUrl = '/.netlify/functions/github-proxy';
+const rawFontUrl = '/.netlify/functions/github-proxy';
 
-    <script>
-        const githubApiUrl = 'https://api.github.com/repos/coder-soft/U2FsdGVkX1-h5xBfZNw-WiuRZyqJXnqr/contents/';
-        const rawGithubUrl = 'https://raw.githubusercontent.com/coder-soft/U2FsdGVkX1-h5xBfZNw-WiuRZyqJXnqr/main/';
+let fontsData = []; // To store the fetched fonts
 
-        async function fetchFonts() {
-            try {
-                const response = await axios.get(githubApiUrl);
-                const fonts = response.data.filter(file => file.name.endsWith('.ttf') || file.name.endsWith('.otf'));
-                
-                const fontList = document.getElementById('fontList');
-                if (fonts.length === 0) {
-                    document.getElementById('errorMessage').textContent = 'No font files found in the repository.';
-                    return;
-                }
-                
-                fonts.forEach(font => {
-                    const li = document.createElement('li');
-                    const downloadBtn = document.createElement('a');
-                    downloadBtn.href = `${rawGithubUrl}${font.name}`;
-                    downloadBtn.className = 'download-btn';
-                    downloadBtn.textContent = `Download ${font.name}`;
-                    downloadBtn.download = font.name;
-                    li.appendChild(downloadBtn);
-                    fontList.appendChild(li);
-                });
-            } catch (error) {
-                console.error('Error fetching fonts:', error);
-                document.getElementById('errorMessage').textContent = `Error: ${error.message}. Please check the console for more details.`;
-            }
-        }
+async function fetchFonts() {
+    try {
+        const response = await axios.get(`${proxyUrl}?action=list`);
+        fontsData = response.data.filter(file => file.name.endsWith('.ttf') || file.name.endsWith('.otf'));
+        displayFonts(fontsData);
+    } catch (error) {
+        console.error('Error fetching fonts:', error);
+        document.getElementById('errorMessage').textContent = `Error: ${error.message}. Please check the console for more details.`;
+    }
+}
 
-        fetchFonts();
-    </script>
+function encodeFont(fontName) {
+    return encodeURIComponent(fontName);
+}
+
+function displayFonts(fonts) {
+    const fontList = document.getElementById('fontList');
+    fontList.innerHTML = ''; // Clear the font list before displaying new results
+
+    if (fonts.length === 0) {
+        document.getElementById('errorMessage').textContent = 'No font files found.';
+        return;
+    }
+
+    fonts.forEach(font => {
+        const li = document.createElement('li');
+        li.className = 'font-box'; // Box for each font
+
+        // Create font preview
+        const fontPreview = document.createElement('div');
+        fontPreview.className = 'font-preview loading';
+        fontPreview.textContent = 'Loading...';
+
+        // Create download button
+        const downloadBtn = document.createElement('a');
+        downloadBtn.href = `${rawFontUrl}?action=download&name=${encodeFont(font.name)}`;
+        downloadBtn.className = 'download-btn';
+        downloadBtn.textContent = `Download ${font.name}`;
+        downloadBtn.download = font.name;
+
+        // Create error message element
+        const errorElement = document.createElement('div');
+        errorElement.className = 'font-error';
+
+        li.appendChild(fontPreview);
+        li.appendChild(downloadBtn);
+        li.appendChild(errorElement);
+        fontList.appendChild(li);
+
+        // Load the font
+        loadFont(font.name, fontPreview, errorElement);
+    });
+}
+
+async function loadFont(fontName, previewElement, errorElement) {
+    try {
+        const encodedFontName = encodeFont(fontName);
+        const fontUrl = `${rawFontUrl}?action=download&name=${encodedFontName}`;
+        console.log(`Attempting to load font: ${fontName} from ${fontUrl}`);
+
+        const fontFace = new FontFace(fontName, `url("${fontUrl}")`);
+        await fontFace.load();
+        document.fonts.add(fontFace);
+
+        previewElement.textContent = 'The quick brown fox jumps over the lazy dog';
+        previewElement.style.fontFamily = `'${fontName}', Arial, sans-serif`;
+        previewElement.classList.remove('loading');
+
+        console.log(`Successfully loaded font: ${fontName}`);
+    } catch (error) {
+        console.error(`Error loading font ${fontName}:`, error);
+        previewElement.textContent = 'Font preview unavailable';
+        previewElement.classList.remove('loading');
+        errorElement.textContent = `Error loading font: ${error.message}`;
+    }
+}
+
+// Live Search Functionality
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener('input', function() {
+    const searchTerm = searchBar.value.toLowerCase();
+    const filteredFonts = fontsData.filter(font => font.name.toLowerCase().includes(searchTerm));
+    displayFonts(filteredFonts);
+});
+
+fetchFonts(); // Initial font fetching
+</script>
 </body>
 </html>

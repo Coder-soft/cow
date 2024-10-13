@@ -40,35 +40,32 @@
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
             padding: 20px;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 30px;
             color: #333;
         }
 
-        .search-box {
-            margin-bottom: 20px;
+        .vsearch-box {
             display: flex;
             justify-content: center;
         }
 
-        .search-box input {
+        .vsearch-box input {
             width: 100%;
             max-width: 500px;
-            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            padding: 10px;
         }
 
         #videolist {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+
             padding: 20px;
         }
 
@@ -135,7 +132,7 @@
             <li class="dropdown">
               <a href="#">Products</a>
               <div class="dropdown-content">
-                <a href="index.html">Minecraft Icons</a>
+                <a href="public/index.html">Minecraft Icons</a>
                 <a href="musiclist.html">Music and SFX Library</a>
                 <a href="videolist.html">Video Footages</a>
                 <a href="fontlist.html">Font Library</a>
@@ -148,16 +145,16 @@
         </div>
       </nav>
 </section>
-    <div class="container">
+    
         <h1>Video Collection</h1>
-        
-        <div class="search-box">
+        <div class="vsearch-box">
             <input 
                 type="text" 
                 id="searchInput" 
                 placeholder="Search videos..."
                 onkeyup="searchVideos()">
         </div>
+        <div class="container">
 
         <div id="videoList"></div>
     </div>
