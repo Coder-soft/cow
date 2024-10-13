@@ -170,24 +170,16 @@
 <script>
 const githubApiUrl = 'https://api.github.com/repos/coder-soft/Fonts/contents/';
 const rawGithubUrl = 'https://raw.githubusercontent.com/coder-soft/Fonts/main/';
-const commitsApiUrl = 'https://api.github.com/repos/coder-soft/Fonts/commits?path=';
 
-// GitHub Personal Access Token (replace with your actual token)
-const token = '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';  // Ensure this token is correct and has the necessary permissions
+let allFonts = []; // Store all fonts
 
 function encodeFont(fontName) {
     return encodeURIComponent(fontName);
 }
 
-let allFonts = []; // Store all fonts
-
 async function fetchFonts() {
     try {
-        const response = await axios.get(githubApiUrl, {
-            headers: {
-                'Authorization': `token ${token}`
-            }
-        });
+        const response = await axios.get(githubApiUrl);
         allFonts = response.data.filter(file => file.name.endsWith('.ttf') || file.name.endsWith('.otf'));
 
         if (allFonts.length === 0) {
@@ -198,11 +190,7 @@ async function fetchFonts() {
         displayFonts(allFonts);
     } catch (error) {
         console.error('Error fetching fonts:', error);
-        if (error.response && error.response.status === 401) {
-            document.getElementById('errorMessage').textContent = `Error: Unauthorized access. Please check your GitHub token.`;
-        } else {
-            document.getElementById('errorMessage').textContent = `Error: Unable to fetch font list. Please check your network connection and try again.`;
-        }
+        document.getElementById('errorMessage').textContent = `Error: Unable to fetch font list. Please check your network connection and try again.`;
     }
 }
 
