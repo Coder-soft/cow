@@ -173,7 +173,7 @@ const rawGithubUrl = 'https://raw.githubusercontent.com/coder-soft/Fonts/main/';
 const commitsApiUrl = 'https://api.github.com/repos/coder-soft/Fonts/commits?path=';
 
 // GitHub Personal Access Token (replace with your actual token)
-const token = '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'; // Store this securely, e.g., in environment variables
+const token = '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';  // Ensure this token is correct and has the necessary permissions
 
 function encodeFont(fontName) {
     return encodeURIComponent(fontName);
@@ -189,45 +189,49 @@ async function fetchFonts() {
             }
         });
         allFonts = response.data.filter(file => file.name.endsWith('.ttf') || file.name.endsWith('.otf'));
-        
+
         if (allFonts.length === 0) {
             document.getElementById('errorMessage').textContent = 'No font files found in the repository.';
             return;
         }
-        
+
         displayFonts(allFonts);
     } catch (error) {
         console.error('Error fetching fonts:', error);
-        document.getElementById('errorMessage').textContent = `Error: Unable to fetch font list. Please check your network connection and try again.`;
+        if (error.response && error.response.status === 401) {
+            document.getElementById('errorMessage').textContent = `Error: Unauthorized access. Please check your GitHub token.`;
+        } else {
+            document.getElementById('errorMessage').textContent = `Error: Unable to fetch font list. Please check your network connection and try again.`;
+        }
     }
 }
 
 function displayFonts(fonts) {
     const fontList = document.getElementById('fontList');
     fontList.innerHTML = ''; // Clear existing fonts
-    
+
     fonts.forEach(font => {
         const li = document.createElement('li');
         li.className = 'font-box';
-        
+
         const fontPreview = document.createElement('div');
         fontPreview.className = 'font-preview loading';
         fontPreview.textContent = 'Loading...';
-        
+
         const downloadBtn = document.createElement('a');
         downloadBtn.href = `${rawGithubUrl}${encodeFont(font.name)}`;
         downloadBtn.className = 'download-btn';
         downloadBtn.textContent = `Download ${font.name}`;
         downloadBtn.download = font.name;
-        
+
         const errorElement = document.createElement('div');
         errorElement.className = 'font-error';
-        
+
         li.appendChild(fontPreview);
         li.appendChild(downloadBtn);
         li.appendChild(errorElement);
         fontList.appendChild(li);
-        
+
         loadFont(font.name, fontPreview, errorElement, downloadBtn);
     });
 }
@@ -237,20 +241,20 @@ async function loadFont(fontName, previewElement, errorElement, downloadBtn) {
         const encodedFontName = encodeFont(fontName);
         const fontUrl = `${rawGithubUrl}${encodedFontName}`;
         console.log(`Attempting to load font: ${fontName} from ${fontUrl}`);
-        
+
         const response = await fetch(fontUrl);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const fontFace = new FontFace(fontName, `url("${fontUrl}")`);
         await fontFace.load();
         document.fonts.add(fontFace);
-        
+
         previewElement.textContent = 'The quick brown fox jumps over the lazy dog';
         previewElement.style.fontFamily = `'${fontName}', Arial, sans-serif`;
         previewElement.classList.remove('loading');
-        
+
         console.log(`Successfully loaded font: ${fontName}`);
     } catch (error) {
         console.error(`Error loading font ${fontName}:`, error);
