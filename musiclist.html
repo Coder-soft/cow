@@ -13,6 +13,21 @@
         text-align: center;
         text-decoration: none;
       }
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
+
       .paragraph {
         text-align: center;
         font-size: smaller;
@@ -76,7 +91,8 @@
         <div class="container">
             <h1>Music Library</h1>
             <p class="paragraph">Music could take some time to load.</p>
-            <input type="text" id="search" placeholder="Search Music..." autocomplete="off">
+            <p class="paragraph"> Some Musics Might Not Load On Browser.</p>
+            <input type="text" id="search" class="search" placeholder="Search Music..." autocomplete="off">
             <div id="musiclist"></div>
     </section>
     <section>
