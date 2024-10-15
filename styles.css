@@ -38,14 +38,22 @@ p {
 
 /* Layout */
 .container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 900px;
+  margin: 10px auto;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+align-items: center;
   background-color: var(--card-background);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   transition: box-shadow var(--transition-speed) ease;
+  text-align: center;
+  width: 100%;
+
 }
+
 
 .container:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -189,18 +197,23 @@ nav {
 
 /* Grids */
 .music-grid,
-.icon-grid,
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
   padding: 1rem;
 }
 
 .icon-grid,
 #musicContainer {
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 80vh;
   border: 1px solid var(--background-color);
   border-radius: 8px;
 }
@@ -247,12 +260,12 @@ nav {
 /* Inventory Item */
 .inventory-item img {
   width: 100%;
-  max-width: 120px;
+  max-width: 80px;
   height: auto;
   object-fit: cover;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border: 1px solid var(--background-color);
-  padding: 0.5rem;
+  padding: 0.3rem;
   background-color: var(--card-background);
   border-radius: 8px;
   transition: transform var(--transition-speed) ease;
