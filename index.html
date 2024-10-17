@@ -2,57 +2,318 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Creator On Wheels A place fill with content creating Resources, MusicList, FontsList, MC icons, Videos Footages.">
-    <link rel="stylesheet" href="styles.css">
-    <title>Creator On Wheels</title>
+    <title>CreativeKit - Free Content Creation Assets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f43f5e;
+            --text: #1f2937;
+        }
+
+        body {
+            line-height: 1.5;
+            color: var(--text);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f3f4f6;
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .features {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stats {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                padding-left: 1rem;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-<section class="blue">
-  <nav>
-    <div class="nav-container">
-      <a href="#" class="logo">Creator On Wheels</a>
-      <button class="mobile-menu-btn">☰</button>
-      <ul class="nav-links">
-        <li class="dropdown">
-          <a href="#">Products</a>
-          <div class="dropdown-content">
-            <a href="#icons">Minecraft Icons</a>
-            <a href="musiclist.html">Music and SFX Library</a>
-            <a href="videolist.html">Video Footages</a>
-            <a href="fontlist.html">Font Library</a>
-          </div>
-        </li>
-        <li><a href="crc.html">Copyright Issues</a></li>
-        <li><a href="syl.html">Submit Your Library</a></li>
-        <li><a href="https://discord.com/users/1094475489734819840">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</section>
-<section>
-  <p class="para">Creator On Wheels(COW) is a website that will help you to create your <a class="mc" href=""><strong>Minecraft</strong></a> Content On <a class="yt" href="#"><strong>Youtube.</strong></a> By Providing you necessary tools to create your own Minecraft content. </p>
-</section>
-  <section id="icons">
-    <div class="search-box">
-    <div class="container">
-        <h1>Search Icons</h1>
-        <p>This Section is Inspired by Mc Icons - By Owilly</p>
-        <input type="text" id="search" placeholder="Search icons..." autocomplete="off">
-        <div id="resultContainer" class="icon-grid"></div>
-    </div>
+    <nav>
+        <div class="logo">Creator On Wheels</div>
+        <button class="mobile-menu-btn">☰</button>
+        <div class="nav-links">
+            <div class="nav-item">
+                <a href="#features">Features ▾</a>
+                <div class="dropdown-content">
+                    <a href="thumbnail.html">Thumbnail Assets</a>
+                    <a href="sfxlist.html">SFX Library</a>
+                    <a href="musiclist.html">Audio Library</a>
+                    <a href="fontlist.html">Font Library</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#resources">Resources ▾</a>
+                <div class="dropdown-content">
+                    <a href="https://toniakendrick.com/content-creation-for-beginners/">Tutorial</a>
+                    <a href="https://discord.gg/creator-coaster-1075932452842909806">Creator Coaster Discord</a>
+                    <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#pricing">Free Assets ▾</a>
+                <div class="dropdown-content">
+                    <a href="https://discord.gg/creator-coaster-1075932452842909806">Creator Coaster Discord</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#contact">Contact ▾</a>
+                <div class="dropdown-content">
+                    <a href="https://discord.gg/creator-coaster-1075932452842909806">Support</a>
+                    <a href="https://discord.gg/creator-coaster-1075932452842909806">Feedback</a>
+                    <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-</section>    
-<section>
-    <script src="script.js"></script>
-</section>
-<section>
+    <section class="hero">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem;">Unleash Your Creativity</h1>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem;">Access thousands of free, high-quality assets for your content creation needs</p>
+            <button class="btn btn-primary">Get Started - It's Free</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Everything You Need</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 3rem;">All the tools and resources you need, completely free</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Thumbnail Assets</h3>
+                    <p>Access Dozens of high-resolution Thumbnail Assets</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">SFX Library</h3>
+                    <p>Unlimited access to professional SFXs</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Music Library</h3>
+                    <p>Thousands of Musics Available at your disposal</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Fonts Library</h3>
+                    <p>Unlimited Free access to Fonts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>2K+</h3>
+                    <p>Free Assets</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Users</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Free Forever</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2023 Creator On Wheels. All rights reserved.</p>
-        <p>Developed by <a class="mc" href="https://coder-soft.pages.dev">coder-soft</a></p>
-        <p>Want More Features? Contact Me On Discord- Tag: youwasted</p>
+        <div class="container">
+            <p style="text-align: center;">© 2024 Creator On Wheels. All rights reserved.</p>
+        </div>
     </footer>
-</section>
-</body>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
 
+      mobileMenuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+      });
+  </script>
+</body>
 </html>

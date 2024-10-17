@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creator On Wheels A place filled with content creating resources, including image libraries, PSD files, icons, and more.">
+    <link rel="stylesheet" href="styles.css">
+    <title>COW - Image Library</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .search-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .search-box input {
+        width: 100%;
+        max-width: 500px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .paragraph {
+        text-align: center;
+        font-size: smaller;
+        color: #505050;
+      }
+      .button {
+        font: inherit;
+        position: absolute;
+        top: 155px;
+        right: 320px;
+        background-color: #f0f0f0;
+        border: 0;
+        color: #242424;
+        border-radius: 0.5em;
+        font-size: 1.35rem;
+        padding: 0.375em 1em;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .button:active {
+        translate: 0 0.225em;
+      }
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+      .image-item {
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .image-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .image-item a {
+        display: inline-block;
+        text-decoration: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+      .image-item a:hover {
+        background-color: #0056b3;
+      }
+      #search {
+        padding: 10px;
+        width: 400px;
+        font-size: 1.1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Creator On Wheels</div>
+    <button class="mobile-menu-btn">☰</button>
+    <div class="nav-links">
+        <div class="nav-item">
+            <a href="#features">Features ▾</a>
+            <div class="dropdown-content">
+                <a href="thumbnail.html">Thumbnail Assets</a>
+                <a href="sfxlist.html">SFX Library</a>
+                <a href="musiclist.html">Audio Library</a>
+                <a href="fontlist.html">Font Library</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#resources">Resources ▾</a>
+            <div class="dropdown-content">
+                <a href="https://toniakendrick.com/content-creation-for-beginners/">Tutorial</a>
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Creator Coaster Discord</a>
+                <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#pricing">Free Assets ▾</a>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Creator Coaster Discord</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#contact">Contact ▾</a>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Support</a>
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Feedback</a>
+                <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section id="images">
+      <div class="container">
+        <h1>Image Library</h1>
+        <p class="paragraph">Images could take some time to load.</p>
+        <input type="text" id="search" class="search" placeholder="Search Images..." autocomplete="off">
+        <div id="imagelist" class="image-grid"></div>
+      </div>
+    </section>
+    <section>
+      <footer>
+        <p>Contact <a href="#" class="mc">{youwasted}</a> on Discord to add your image library to the website.</p>
+      </footer>
+    </section>
+    <script src="video.js"></script>
+</body>
+</html>

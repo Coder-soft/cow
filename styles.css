@@ -40,7 +40,7 @@ p {
 .container {
   max-width: 900px;
   margin: 10px auto;
-  margin-top: 20px;
+  margin-top: 60px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -76,82 +76,67 @@ header {
   z-index: 1000;
 }
 
-/* Navigation */
 nav {
-  background-color: var(--primary-color);
-  padding: 0.5rem;
-  border-radius: 8px;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  color: white;
   font-size: 1.5rem;
-  text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
+  color: var(--primary);
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
-  list-style: none;
+  gap: 2rem;
 }
 
-.nav-links li {
+.nav-item {
   position: relative;
 }
 
 .nav-links a {
-  color: white;
   text-decoration: none;
+  color: var(--text);
   padding: 0.5rem 1rem;
   display: block;
-  transition: background-color var(--transition-speed) ease;
-  border-radius: 6px;
 }
 
-.nav-links > li > a:hover {
-  background-color: var(--secondary-color);
-}
-
-/* Dropdown styles */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--card-background);
-  min-width: 160px;
-  box-shadow: var(--card-shadow);
-  z-index: 1;
-  border-radius: 6px;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
   overflow: hidden;
+  top: 100%;
+  left: 0;
+  z-index: 1001;
 }
 
-.dropdown:hover .dropdown-content {
+.nav-item:hover .dropdown-content {
   display: block;
 }
 
 .dropdown-content a {
-  color: var(--text-color);
-  padding: 12px 16px;
-  display: block;
-  transition: background-color var(--transition-speed) ease;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: var(--background-color);
-}
-
-.dropdown > a::after {
-  content: '▼';
-  font-size: 0.8rem;
-  margin-left: 5px;
+  background-color: #f3f4f6;
+  color: var(--primary);
 }
 
 /* Mobile menu button */
