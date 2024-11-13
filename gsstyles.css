@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f3f4f6;
+    background-color: #e0e5ec;
     background-image: url('bgg.jpg');
     background-size: cover;
     background-position: center;
@@ -16,6 +16,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    color: #333;
 }
 
 .container {
@@ -24,46 +25,47 @@ body {
     gap: 30px;
     width: 100%;
     max-width: 1200px;
+    padding: 10px;
 }
 
 .box {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 255, 0.95));
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative;
     text-decoration: none;
-    color: #333;
+    color: inherit;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .box-content {
     padding: 25px;
     text-align: center;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #0078d7;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #0057b7;
 }
 
 p {
-    font-size: 14px;
-    color: #666;
+    font-size: 15px;
+    color: #555;
     line-height: 1.6;
-    flex-grow: 1;
 }
 
 /* Corner shapes */
@@ -71,10 +73,10 @@ p {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: #0078d7;
+    background-color: #0057b7;
     clip-path: polygon(100% 0, 0 0, 0 100%);
     z-index: 1;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .top-left {
@@ -88,55 +90,49 @@ p {
     transform: rotate(180deg);
 }
 
-/* Glowing effect for copyright checker box */
+/* Enhanced glowing effect for highlighted box */
 .glow-effect {
     position: relative;
-    overflow: visible !important;
+    overflow: visible;
+    border-radius: 20px;
 }
 
 .glow-effect::before {
     content: '';
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(45deg, #ff00ff, #00ff00, #00ffff, #ff00ff);
-    background-size: 400% 400%;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background: linear-gradient(45deg, #f09, #ff0, #0ff, #f09);
+    background-size: 500% 500%;
     z-index: -1;
-    filter: blur(15px);
-    border-radius: 20px;
-    animation: glowing 10s ease infinite, pulse 2s infinite;
-    opacity: 0.7;
+    filter: blur(20px);
+    border-radius: 25px;
+    animation: glowing 12s ease infinite, pulse 2.5s infinite;
+    opacity: 0.8;
 }
 
 @keyframes glowing {
-    0% {
+    0%, 100% {
         background-position: 0 50%;
     }
     50% {
         background-position: 100% 50%;
     }
-    100% {
-        background-position: 0 50%;
-    }
 }
 
 @keyframes pulse {
-    0% {
+    0%, 100% {
         transform: scale(0.98);
     }
     50% {
-        transform: scale(1.02);
-    }
-    100% {
-        transform: scale(0.98);
+        transform: scale(1.03);
     }
 }
 
-/* Adjust the box shadow for the glowing effect */
 .glow-effect:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {
