@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creator On Wheels A place fill with content creating Resources, MusicList, FontsList, MC icons, Videos Footages.">
+    <link rel="stylesheet" href="styles.css">
+    <title>COW - Music</title>
+    <style>
+      * {
+        text-decoration: none;
+        
+      }
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+      .paragraph {
+        text-align: center;
+        font-size: smaller;
+        color: #505050;
+      }
+      /* From Uiverse.io by elijahgummer */ 
+.button {
+  font: inherit;
+  position: absolute;
+  top: 155px;
+  right: 320px;
+  background-color: #f0f0f0;
+  border: 0;
+  color: #242424;
+  border-radius: 0.5em;
+  font-size: 1.35rem;
+  padding: 0.375em 1em;
+  font-weight: 600;
+  text-shadow: 0 0.0625em 0 #fff;
+  box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+    0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+    0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+  transition: 0.15s ease;
+  cursor: pointer;
+}
+.button:active {
+  translate: 0 0.225em;
+  box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
+  }
+  .music-item {
+    background-color: #fff;
+    width: 900px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+#musicContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: scroll;
+    max-height: 400px;
+    border: 1px solid #505050;
+}
+.musicCard {
+    background-color: #333;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    width: 2000px;
+}
+.music-item audio {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .music-item a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .music-item a:hover {
+    background-color: #0056b3;
+  }
+  #search {
+    padding: 10px;
+    width: 400px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Creator On Wheels</div>
+    <button class="mobile-menu-btn">☰</button>
+    <div class="nav-links">
+        <div class="nav-item">
+            <a href="#features">Features ▾</a>
+            <div class="dropdown-content">
+                <a href="thumbnail.html">Thumbnail Assets</a>
+                <a href="sfxlist.html">SFX Library</a>
+                <a href="musiclist.html">Audio Library</a>
+                <a href="fontlist.html">Font Library</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#resources">Resources ▾</a>
+            <div class="dropdown-content">
+                <a href="https://toniakendrick.com/content-creation-for-beginners/">Tutorial</a>
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Creator Coaster Discord</a>
+                <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+                <a href="https://gappa-web.pages.dev/">Copyright Checker</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#pricing">Other ▾</a>
+            <div class="dropdown-content">
+                <a href="others.html">Other Assets</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#contact">Contact ▾</a>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Support</a>
+                <a href="https://discord.gg/creator-coaster-1075932452842909806">Feedback</a>
+                <a href="https://discord.com/users/1094475489734819840">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section id="music">
+      <a href="sfxlist.html" class="button">Switch to SFX</a>
+        <div class="container">
+            <h1>Music Library</h1>
+            <p class="paragraph">Music could take some time to load.</p>
+            <p class="paragraph"> Some Musics Might Not Load On Browser.</p>
+            <input type="text" id="search" class="search" placeholder="Search Music..." autocomplete="off">
+            <div id="musiclist"></div>
+    </section>
+    <section>
+        <footer>
+            <p>Contact <a href="#" class="mc">{youwasted}</a> on discord to add your music library to the website.</p>
+        </footer>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
